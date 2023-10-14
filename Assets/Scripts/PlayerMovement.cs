@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private TrailRenderer tr;
+    [SerializeField] private Animator anim;
 
     #region BASIC MOVEMENT
 
@@ -32,12 +33,6 @@ public class PlayerMovement : MonoBehaviour
     private float dashingCooldown = 1f;
     #endregion
 
-    #region OTHER
-
-    private int invokeCount;
-
-    #endregion
-
     #region WALLSLIDE & JUMP
 
     private bool isTouchingWall;
@@ -53,11 +48,18 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
+    #region OTHER
+
+    private int invokeCount;
+
+    #endregion
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
+        anim = GetComponent<Animator>();
         //InvokeRepeating("InvokeFunction", 0f, 0.5f);
     }
 
@@ -85,9 +87,12 @@ public class PlayerMovement : MonoBehaviour
 
         if(isGrounded)
         {
-            extraJumps = extraJumpsValue;  
+            extraJumps = extraJumpsValue;
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isFalling", false);
+
         }
-        if(Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
@@ -95,6 +100,28 @@ public class PlayerMovement : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
+
+        }
+
+        if(rb.velocity.y > 0)
+        {
+            anim.SetBool("isJumping", true);
+        }
+
+        if (rb.velocity.y < 0)
+        {
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isFalling", true);
+        }
+
+        if(Mathf.Abs(rb.velocity.x) > 0)
+        {
+            anim.SetFloat("speed", 1);
+        }
+        else
+        {
+            anim.SetFloat("speed", -1);
+
         }
 
 
