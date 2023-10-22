@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if(rb.velocity.y > 0)
+        if(rb.velocity.y > 0 && Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("isJumping", true);
         }

@@ -14,6 +14,9 @@ public class PlayerAttack : MonoBehaviour
     public int playerDamage = 40;
     private Wall _Wall;
     private Enemy _Enemy;
+    private EnemyHealth _EnemyHealth;
+    [SerializeField] private GameObject wizardEnemy;
+    [SerializeField] private GameObject knightEnemy;
 
     public float attackRate = 2f;
     float nextAttackTime = 0f;
@@ -44,20 +47,27 @@ public class PlayerAttack : MonoBehaviour
         anim.SetTrigger("Attack");
         yield return new WaitForSeconds(animationDelay);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-        foreach (Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemyCollider in hitEnemies)
         {
-            if(gameObject.CompareTag("Wizard"))
+            GameObject enemyObject = enemyCollider.gameObject;
+
+            if (enemyObject.CompareTag("Wizard"))
             {
-                _Enemy.TakeDamage(40);
+                enemyObject.GetComponent<EnemyHealth>().TakeDamage(playerDamage);
                 Debug.Log("Hit wizard for 40!");
+                Debug.Log("A");
+
             }
-            if(gameObject.CompareTag("Knight"))
+            else if (enemyObject.CompareTag("Knight"))
             {
-                _Enemy.TakeDamage(40);
+                enemyObject.GetComponent<EnemyHealth>().TakeDamage(playerDamage);
                 Debug.Log("Hit knight for 40!");
+                Debug.Log("B");
 
             }
         }
+
+
         Collider2D[] hitWalls = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, wallLayer);
         foreach (Collider2D wall in hitWalls)
         {

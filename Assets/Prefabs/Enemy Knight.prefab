@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5422117042942023937}
   - component: {fileID: 5422117042942023942}
   - component: {fileID: 2200180369467559262}
+  - component: {fileID: 2254221082009672634}
   m_Layer: 7
   m_Name: Enemy Knight
   m_TagString: Knight
@@ -168,4 +169,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d520c6e46403309478b33b4584a2554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  anim: {fileID: 0}
+  _PlayerAttack: {fileID: 0}
+  maxHealth: 500
+--- !u!114 &2254221082009672634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5422117042942023964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b09dc3025c9a649b5490f649e4087b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 120

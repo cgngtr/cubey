@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 8208422009036993402}
   - component: {fileID: 1430966310844989199}
   - component: {fileID: 7662520758614156824}
-  m_Layer: 0
+  - component: {fileID: 5914511382195980829}
+  m_Layer: 7
   m_Name: Enemy Wizard
   m_TagString: Wizard
   m_Icon: {fileID: 0}
@@ -147,6 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d520c6e46403309478b33b4584a2554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  _PlayerAttack: {fileID: 0}
   maxHealth: 0
 --- !u!95 &7662520758614156824
 Animator:
@@ -169,3 +172,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5914511382195980829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277373883133513487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b09dc3025c9a649b5490f649e4087b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 80
