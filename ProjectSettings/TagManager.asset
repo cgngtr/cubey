@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - Teleporter
   - Enemy
+  - Wizard
+  - Knight
   layers:
   - Default
   - TransparentFX

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //public Animator anim;
-
-    public int maxHealth = 100;
+    public Animator anim;
+    public PlayerAttack _PlayerAttack;
+    public int maxHealth;
     int currentHealth;
-    private Animator anim;
 
     void Start()
     {
@@ -30,7 +29,6 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
-
     }
 
     public void Die()
@@ -41,4 +39,34 @@ public class Enemy : MonoBehaviour
         this.enabled = false;
         Destroy(gameObject);
     }
+
 }
+
+public class Knight : Enemy
+{
+    public Knight()
+    {
+        maxHealth = 120;
+        TakeDamage(_PlayerAttack.playerDamage);
+    }
+    
+}
+
+public class Wizard : Enemy
+{
+    public Wizard()
+    {
+        maxHealth = 80;
+        TakeDamage(_PlayerAttack.playerDamage);
+    }
+}
+
+public class Example
+{
+    public void PrintMaxHealth()
+    {
+        Knight knight = new Knight();
+        Debug.Log(knight.maxHealth);
+    }
+}
+
