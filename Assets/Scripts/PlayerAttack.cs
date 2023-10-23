@@ -11,9 +11,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private float animationDelay = 0.15f;
-    public int playerDamage = 40;
+    public float playerDamage = 40f;
     private Wall _Wall;
-    private Enemy _Enemy;
     private EnemyHealth _EnemyHealth;
     [SerializeField] private GameObject wizardEnemy;
     [SerializeField] private GameObject knightEnemy;

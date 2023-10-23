@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -761589506, guid: feb81b3ae3f7a374780f6381bcff501e, type: 3}
-  m_Color: {r: 0.5807136, g: 0.5660378, b: 0.754717, a: 1}
+  m_Color: {r: 0.5803922, g: 0.5647059, b: 0.7529412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!95 &5422117042942023942
 Animator:
   serializedVersion: 5

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bouncepad : MonoBehaviour
 {
-    private PlayerMovement playerMovement;
     [SerializeField] private float bounce = 20f;
 
     void Start()
@@ -20,7 +19,6 @@ public class Bouncepad : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse);
-
         }
 
     }

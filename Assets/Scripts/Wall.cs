@@ -12,7 +12,6 @@ public class Wall : MonoBehaviour
     {
         currentHealth = maxHealth;
         sr = GetComponent<SpriteRenderer>();
-
     }
 
     void Update()
@@ -38,7 +37,6 @@ public class Wall : MonoBehaviour
         {
             // Red
             sr.color = Color.red;
-
         }
 
         if (currentHealth <= 0)
