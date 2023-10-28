@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     #region DASH SETTINGS
     private bool canDash = true;
     private bool isDashing;
-    [SerializeField] private float dashingPower = 5f;
+    [SerializeField] private float dashingPower = 2f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
     #endregion

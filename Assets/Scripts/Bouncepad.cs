@@ -6,21 +6,12 @@ public class Bouncepad : MonoBehaviour
 {
     [SerializeField] private float bounce = 20f;
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Bouncepad");
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse);
         }
-
     }
-    
 }

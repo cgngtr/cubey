@@ -54,14 +54,12 @@ public class PlayerAttack : MonoBehaviour
             {
                 enemyObject.GetComponent<EnemyHealth>().TakeDamage(playerDamage);
                 Debug.Log("Hit wizard for 40!");
-                Debug.Log("A");
 
             }
             else if (enemyObject.CompareTag("Knight"))
             {
                 enemyObject.GetComponent<EnemyHealth>().TakeDamage(playerDamage);
                 Debug.Log("Hit knight for 40!");
-                Debug.Log("B");
 
             }
         }
@@ -72,6 +70,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.Log($"You hit : {wall}");
             _Wall.TakeDamage(1);
+            Debug.Log(_Wall.currentHealth);
         }
     }
 
