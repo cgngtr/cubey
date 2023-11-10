@@ -6,9 +6,21 @@ public class EnemyAttack : MonoBehaviour
 {
     private bool isInRange = false;
     float nextAttackTime = 0f;
-    [SerializeField] private float range; // declare later.
-    [SerializeField] private float attackCooldown = 2f; // 0 = fireable.
+    public Transform attackPoint;
+    public float shootingRange;
+    public GameObject bullet;
+    public float fireRate = 1f;
+    public float nextFireTime;
+    public float attackCooldown = 0f; // 0 = fireable.
+    public float attackTimer;
+    public float enemyDamage;
+    public GameObject player;
+    [SerializeField] private float attackRange; // declare later.
     [SerializeField] private float attackRate = 5f;
+    [SerializeField] private float animationDelay = 0.7f;
+    [SerializeField] private LayerMask playerLayer;
+
+
     private Animator anim;
 
     void Start()
@@ -18,19 +30,19 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
-        attackCooldown -= Time.time;
-        if (isInRange && attackCooldown <= 0f)
-        {
-
-            StartCoroutine("ThrowFireball");
-        }
     }
 
-    IEnumerator ThrowFireball()
+    public IEnumerator ThrowFireball()
     {
+        Debug.Log("Coroutine started!");
         anim.SetTrigger("Attack");
-        yield return new WaitForSeconds(0);
-        attackCooldown = 2f;
+        yield return new WaitForSeconds(animationDelay);
+        Instantiate(bullet, new Vector3(attackPoint.transform.position.x,
+        attackPoint.transform.position.y, attackPoint.transform.position.z), Quaternion.identity);
+    }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
+
     public float currentHealth;
     public float maxHealth;
     private Animator anim;
-    private float animationDelay = 1.5f;
 
-    void Start()    
+    void Start()
     {
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
@@ -31,15 +31,10 @@ public class EnemyHealth : MonoBehaviour
             StartCoroutine(Die());
         }
     }
-    IEnumerator Die()
-    {
-        Debug.Log("Enemy died!");
-        anim.SetBool("IsDead", true);
-        yield return new WaitForSeconds(animationDelay);
 
-        Debug.Log("Disabling Collider and Object...");
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
-        Destroy(gameObject);
+    IEnumerator Die() 
+    {
+        yield return new WaitForSeconds(0);
     }
+
 }

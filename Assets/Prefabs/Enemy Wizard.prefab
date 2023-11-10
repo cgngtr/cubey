@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403141213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3733333, y: -0.27333334, z: -0.10795536}
+  m_LocalPosition: {x: -0.494, y: -0.187, z: -0.10795536}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,10 +43,10 @@ GameObject:
   - component: {fileID: 9133248971733304370}
   - component: {fileID: -7815398086548039875}
   - component: {fileID: 8208422009036993402}
-  - component: {fileID: 1430966310844989199}
   - component: {fileID: 7662520758614156824}
   - component: {fileID: 5914511382195980829}
   - component: {fileID: 2050732973}
+  - component: {fileID: 4497134498271493739}
   m_Layer: 7
   m_Name: Enemy Wizard
   m_TagString: Wizard
@@ -168,22 +168,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1430966310844989199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4277373883133513487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d520c6e46403309478b33b4584a2554e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  _PlayerAttack: {fileID: 0}
-  maxHealth: 0
+  m_Constraints: 4
 --- !u!95 &7662520758614156824
 Animator:
   serializedVersion: 5
@@ -231,6 +216,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7f3aa5d658e1f42848d1003a507613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
+  attackPoint: {fileID: 403141214}
+  shootingRange: 7
+  bullet: {fileID: 0}
+  fireRate: 1
+  nextFireTime: 0
+  attackRange: 1
   attackCooldown: 2
   attackRate: 5
+  enemyDamage: 20
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  player: {fileID: 0}
+--- !u!114 &4497134498271493739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277373883133513487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e47606d7c53f64da05487d1959d408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 1.09
+  lineOfSite: 12
+  _EnemyAttack: {fileID: 2050732973}

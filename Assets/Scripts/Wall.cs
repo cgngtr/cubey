@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    public int currentHealth;
+    public int currentHealth = 0;
     public int maxHealth = 3;
     public SpriteRenderer sr;
+    public GameObject wall;
 
     void Start()
     {
