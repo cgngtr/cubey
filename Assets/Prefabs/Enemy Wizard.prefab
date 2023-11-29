@@ -218,17 +218,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 403141214}
   shootingRange: 7
-  bullet: {fileID: 0}
+  bullet: {fileID: 6280481540888858988, guid: cdb4b5fd89c12404da04fff40440076e, type: 3}
   fireRate: 1
   nextFireTime: 0
-  attackRange: 1
   attackCooldown: 2
-  attackRate: 5
+  attackTimer: 0
   enemyDamage: 20
+  player: {fileID: 0}
+  attackRange: 1
+  attackRate: 5
+  animationDelay: 0.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  player: {fileID: 0}
 --- !u!114 &4497134498271493739
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Wizard
   - Knight
+  - Bullet
   layers:
   - Default
   - TransparentFX
